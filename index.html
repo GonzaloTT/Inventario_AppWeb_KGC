@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inventario</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
+    <!-- Supabase Client -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase/2.39.0/supabase.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Inventario</h1>
+            <div class="button-group">
+                <button id="reloadBtn" class="btn btn-secondary">
+                    <span>🔄</span> Recargar Datos
+                </button>
+                <button id="addBtn" class="btn btn-primary">
+                    <span>➕</span> Agregar Item
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Cargando...</p>
+            </div>
+
+            <div class="table-container">
+                <table id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Código</th>
+                            <th>Área</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Responsable</th>
+                            <th>Entrada</th>
+                            <th>Salida</th>
+                            <th>Descripción</th>
+                            <th>QR</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryBody">
+                        <!-- Los datos se cargarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">📦</div>
+                <h3>No hay items en el inventario</h3>
+                <p>Comienza agregando tu primer item al inventario</p>
+                <button class="btn btn-primary" onclick="addNewItem()">
+                    <span>➕</span> Agregar Primer Item
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para mostrar QR -->
+    <div class="modal" id="qrModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Código QR</h3>
+            <div id="qrcode"></div>
+            <p id="qrItemInfo"></p>
+        </div>
+    </div>
+
+    <!-- Modal de configuración (aparecerá al inicio si no hay configuración) -->
+    <div class="modal" id="configModal">
+        <div class="modal-content">
+            <h3>Configuración de Supabase</h3>
+            <p>Para comenzar, necesitas configurar tu conexión a Supabase:</p>
+            <div class="form-group">
+                <label for="supabaseUrl">URL de Supabase:</label>
+                <input type="text" id="supabaseUrl" placeholder="https://tu-proyecto.supabase.co">
+            </div>
+            <div class="form-group">
+                <label for="supabaseKey">API Key (anon/public):</label>
+                <input type="text" id="supabaseKey" placeholder="eyJ...">
+            </div>
+            <button class="btn btn-primary" onclick="saveConfig()">Guardar Configuración</button>
+            <div class="config-help">
+                <h4>¿Cómo obtener estos datos?</h4>
+                <ol>
+                    <li>Ve a <a href="https://supabase.com" target="_blank">supabase.com</a></li>
+                    <li>Crea un nuevo proyecto o selecciona uno existente</li>
+                    <li>Ve a Settings → API</li>
+                    <li>Copia la URL y la anon key</li>
+                    <li>Asegúrate de crear una tabla llamada "inventory" con las columnas necesarias</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
