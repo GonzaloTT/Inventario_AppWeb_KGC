@@ -25,6 +25,9 @@
           <li class="navbar__item">
             <a href="#footer" class="navbar__link">Contacto</a>
           </li>
+          <li class="navbar__item">
+            <a href="#add_product" class="navbar__link">Agregar producto</a>
+          </li>
         </ul>
       </nav>
 
@@ -61,7 +64,7 @@
                 <!-- Aquí se llenará dinámicamente con JS y Supabase -->
               </tbody>
             </table>
-            <section class="inventory__form">
+            <section class="inventory__form" id="add_product">
               <h2 class="inventory__form-title">Agregar Producto</h2>
                 <form id="form-producto" class="form">
                   <input class="form__input" type="text" name="serial" placeholder="Serial" required />
