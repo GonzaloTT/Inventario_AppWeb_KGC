@@ -1,0 +1,41 @@
+/* --------------------
+   Tabla de inventario
+-------------------- */
+.inventory {
+  padding: 3rem 2rem;
+  flex: 1;
+}
+
+.inventory__title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #000000;
+}
+
+.inventory__table-container {
+  overflow-x: auto;
+}
+
+.inventory__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventory__table th,
+.inventory__table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #dddddd;
+}
+
+.inventory__table thead {
+  background-color: #000000;
+  color: #ffcc00;
+}
+
+.inventory__table tr:hover {
+  background-color: #f9f9f9;
+}

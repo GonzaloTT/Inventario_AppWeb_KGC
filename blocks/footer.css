@@ -1,0 +1,15 @@
+/* --------------------
+   Footer
+-------------------- */
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+.footer__text {
+  margin: 0;
+  font-size: 0.9rem;
+}

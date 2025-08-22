@@ -1,0 +1,42 @@
+/* --------------------
+   Barra de navegación
+-------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px 22px 32px;
+  z-index: 1000;
+}
+
+.navbar__logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffcc00; /* Amarillo */
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 64px 0 0;
+  padding: 0;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar__link:hover {
+  color: #ffcc00;
+}

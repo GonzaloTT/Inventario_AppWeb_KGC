@@ -1,106 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Inventario</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- QR Code Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
-    <!-- Supabase Client -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase/2.39.0/supabase.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Sistema de Inventario</h1>
-            <div class="button-group">
-                <button id="reloadBtn" class="btn btn-secondary">
-                    <span>🔄</span> Recargar Datos
-                </button>
-                <button id="addBtn" class="btn btn-primary">
-                    <span>➕</span> Agregar Item
-                </button>
-            </div>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="KGC" />
+    <meta name="description" content="Aplicacion Web Inventario KGC" />
+    <meta name="keywords" content="Inventario, KGC" />
+    <title>Inventario KGC</title>
+    <link rel="shortcut icon" href="KGC_Icon.png" />
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Barra de navegación -->
+      <nav class="navbar">
+        <div class="navbar__logo">Inventario KGC</div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="#header" class="navbar__link">Inicio</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#inventory" class="navbar__link">Inventario</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#footer" class="navbar__link">Contacto</a>
+          </li>
+        </ul>
+      </nav>
 
-        <main>
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Cargando...</p>
-            </div>
-
-            <div class="table-container">
-                <table id="inventoryTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Código</th>
-                            <th>Área</th>
-                            <th>Nombre</th>
-                            <th>Categoría</th>
-                            <th>Responsable</th>
-                            <th>Entrada</th>
-                            <th>Salida</th>
-                            <th>Descripción</th>
-                            <th>QR</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="inventoryBody">
-                        <!-- Los datos se cargarán aquí -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="empty-state" id="emptyState" style="display: none;">
-                <div class="empty-icon">📦</div>
-                <h3>No hay items en el inventario</h3>
-                <p>Comienza agregando tu primer item al inventario</p>
-                <button class="btn btn-primary" onclick="addNewItem()">
-                    <span>➕</span> Agregar Primer Item
-                </button>
-            </div>
-        </main>
-    </div>
-
-    <!-- Modal para mostrar QR -->
-    <div class="modal" id="qrModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Código QR</h3>
-            <div id="qrcode"></div>
-            <p id="qrItemInfo"></p>
+      <!-- Encabezado -->
+      <header class="header" id="header">
+        <div class="header__content">
+          <h1 class="header__title">Sistema de Inventario</h1>
+          <p class="header__subtitle">
+            Administra, organiza y consulta el inventario de manera eficiente.
+          </p>
         </div>
-    </div>
+      </header>
 
-    <!-- Modal de configuración (aparecerá al inicio si no hay configuración) -->
-    <div class="modal" id="configModal">
-        <div class="modal-content">
-            <h3>Configuración de Supabase</h3>
-            <p>Para comenzar, necesitas configurar tu conexión a Supabase:</p>
-            <div class="form-group">
-                <label for="supabaseUrl">URL de Supabase:</label>
-                <input type="text" id="supabaseUrl" placeholder="https://tu-proyecto.supabase.co">
-            </div>
-            <div class="form-group">
-                <label for="supabaseKey">API Key (anon/public):</label>
-                <input type="text" id="supabaseKey" placeholder="eyJ...">
-            </div>
-            <button class="btn btn-primary" onclick="saveConfig()">Guardar Configuración</button>
-            <div class="config-help">
-                <h4>¿Cómo obtener estos datos?</h4>
-                <ol>
-                    <li>Ve a <a href="https://supabase.com" target="_blank">supabase.com</a></li>
-                    <li>Crea un nuevo proyecto o selecciona uno existente</li>
-                    <li>Ve a Settings → API</li>
-                    <li>Copia la URL y la anon key</li>
-                    <li>Asegúrate de crear una tabla llamada "inventory" con las columnas necesarias</li>
-                </ol>
-            </div>
-        </div>
-    </div>
+      <!-- Sección principal -->
+      <main class="content" id="inventory">
+        <section class="inventory">
+          <h2 class="inventory__title">Tabla de Inventario</h2>
+          <div class="inventory__table-container">
+            <table class="inventory__table">
+              <thead class="inventory__table-head">
+                <tr>
+                  <th>Serial</th>
+                  <th>Código</th>
+                  <th>Área</th>
+                  <th>Nombre del producto</th>
+                  <th>Artículo</th>
+                  <th>Existencia</th>
+                  <th>Responsable</th>
+                  <th>Entradas</th>
+                  <th>Salidas</th>
+                  <th>Comentarios</th>
+                </tr>
+              </thead>
+              <tbody class="inventory__table-body">
+                <!-- Aquí se llenará dinámicamente con JS y Supabase -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
 
-    <script src="script.js"></script>
-</body>
+      <!-- Pie de página -->
+      <footer class="footer" id="footer">
+        <p class="footer__text">
+          © 2025 Inventario KGC. Todos los derechos reservados.
+        </p>
+      </footer>
+    </div>
+    <script src="scripts/index.js"></script>
+  </body>
 </html>
