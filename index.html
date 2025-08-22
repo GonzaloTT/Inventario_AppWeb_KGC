@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="page">
-      <!-- Barra de navegación -->
+
       <nav class="navbar">
         <div class="navbar__logo">Inventario KGC</div>
         <ul class="navbar__menu">
@@ -28,7 +28,6 @@
         </ul>
       </nav>
 
-      <!-- Encabezado -->
       <header class="header" id="header">
         <div class="header__content">
           <h1 class="header__title">Sistema de Inventario</h1>
@@ -38,7 +37,6 @@
         </div>
       </header>
 
-      <!-- Sección principal -->
       <main class="content" id="inventory">
         <section class="inventory">
           <h2 class="inventory__title">Tabla de Inventario</h2>
@@ -56,23 +54,41 @@
                   <th>Entradas</th>
                   <th>Salidas</th>
                   <th>Comentarios</th>
+                  <th>Oficina</th>
                 </tr>
               </thead>
               <tbody class="inventory__table-body">
                 <!-- Aquí se llenará dinámicamente con JS y Supabase -->
               </tbody>
             </table>
+            <section class="inventory__form">
+              <h2 class="inventory__form-title">Agregar Producto</h2>
+                <form id="form-producto" class="form">
+                  <input type="text" name="serial" placeholder="Serial" required />
+                  <input type="text" name="codigo" placeholder="Código" required />
+                  <input type="text" name="area" placeholder="Área" required />
+                  <input type="text" name="nombre_del_producto" placeholder="Nombre del producto" required />
+                  <input type="text" name="articulo" placeholder="Artículo" required />
+                  <input type="number" name="existencia" placeholder="Existencia" required />
+                  <input type="text" name="responsable" placeholder="Responsable" />
+                  <input type="text" name="entradas" placeholder="Entradas" />
+                  <input type="text" name="salidas" placeholder="Salidas" />
+                  <input type="text" name="comentarios" placeholder="Comentarios" />
+                  <input type="text" name="oficina" placeholder="Oficina" />
+                <button type="submit">Agregar</button>
+                </form>
+            </section>
           </div>
         </section>
       </main>
 
-      <!-- Pie de página -->
       <footer class="footer" id="footer">
         <p class="footer__text">
           © 2025 Inventario KGC. Todos los derechos reservados.
         </p>
       </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="scripts/index.js"></script>
   </body>
 </html>
