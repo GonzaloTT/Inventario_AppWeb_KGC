@@ -10,6 +10,43 @@
   color: #000000;
 }
 
+/* --- Filtros de inventario --- */
+.inventory__filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.inventory__search,
+.inventory__filter {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inventory__search {
+  flex: 1; /* que se expanda más */
+  min-width: 220px;
+}
+
+.inventory__search:focus,
+.inventory__filter:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.3);
+}
+
+.inventory__filter {
+  background: #fff;
+  min-width: 160px;
+  cursor: pointer;
+}
+
 .inventory__table-container {
   overflow-x: auto;
 }
@@ -54,5 +91,12 @@
 }
 
 @media screen and (max-width: 543px) {
-  
+  .inventory__filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .inventory__search,
+  .inventory__filter {
+    width: 100%;
+  }
 }

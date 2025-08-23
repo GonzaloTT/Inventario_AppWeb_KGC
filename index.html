@@ -23,10 +23,10 @@
             <a href="#inventory" class="navbar__link">Inventario</a>
           </li>
           <li class="navbar__item">
-            <a href="#footer" class="navbar__link">Contacto</a>
+            <a href="#add_product" class="navbar__link">Agregar producto</a>
           </li>
           <li class="navbar__item">
-            <a href="#add_product" class="navbar__link">Agregar producto</a>
+            <a href="#footer" class="navbar__link">Contacto</a>
           </li>
         </ul>
       </nav>
@@ -43,6 +43,35 @@
       <main class="content" id="inventory">
         <section class="inventory">
           <h2 class="inventory__title">Tabla de Inventario</h2>
+          <div class="inventory__filters">
+           <!-- Búsqueda -->
+          <input 
+             type="text" 
+              id="buscar" 
+              placeholder="Buscar producto" 
+              class="inventory__search">
+            <!-- Filtro por área -->
+            <select id="filtro-area" class="inventory__filter">
+              <option value="">-- Filtrar por área --</option>
+              <option value="ADMINISTRACIÓN GENERAL">ADMINISTRACIÓN GENERAL</option>
+              <option value="BAÑO">BAÑO</option>
+              <option value="COCINA">COCINA</option>
+              <option value="COMEDOR">COMEDOR</option>
+              <option value="FINANZAS & CONTABILIDAD">FINANZAS & CONTABILIDAD</option>
+              <option value="MARKETING & SISTEMAS">MARKETING & SISTEMAS</option>
+              <option value="OPERACIONES">OPERACIONES</option>
+              <option value="OPERACIONES HOLDING">OPERACIONES HOLDING</option>
+              <option value="RECEPCION">RECEPCION</option>
+              <option value="RECURSOS HUMANOS">RECURSOS HUMANOS</option>
+              <option value="SALA DE JUNTAS">SALA DE JUNTAS</option>
+              <option value="SEGURIDAD PATRIMONIAL Y CALIDAD">SEGURIDAD PATRIMONIAL Y CALIDAD</option>
+              <option value="STAND BY">STAND BY</option>
+              <option value="STOCK">STOCK</option>
+              <option value="USO GENERAL">USO GENERAL</option>
+              <option value="VENTAS HOLDING">VENTAS HOLDING</option>
+              <option value="MONITOREO">MONITOREO</option>
+            </select>
+          </div>
           <div class="inventory__table-container">
             <table class="inventory__table">
               <thead class="inventory__table-head">
@@ -84,6 +113,31 @@
           </div>
         </section>
       </main>
+
+      <!-- Modal de edición -->
+      <div id="modal-editar" class="modal hidden">
+        <div class="modal__content">
+          <h2 class="modal__title">Editar Producto</h2>
+            <form id="form-editar" class="form">
+              <input type="hidden" name="id" id="edit-id" />
+              <input class="form__input" type="text" name="serial" id="edit-serial" placeholder="Serial" required />
+              <input class="form__input" type="text" name="codigo" id="edit-codigo" placeholder="Código" required />
+              <input class="form__input" type="text" name="area" id="edit-area" placeholder="Área" required />
+              <input class="form__input" type="text" name="nombre_del_producto" id="edit-nombre" placeholder="Nombre del producto" required />
+              <input class="form__input" type="text" name="articulo" id="edit-articulo" placeholder="Artículo" required />
+              <input class="form__input" type="number" name="existencia" id="edit-existencia" placeholder="Existencia" required />
+              <input class="form__input" type="text" name="responsable" id="edit-responsable" placeholder="Responsable" />
+              <input class="form__input" type="text" name="entradas" id="edit-entradas" placeholder="Entradas" />
+              <input class="form__input" type="text" name="salidas" id="edit-salidas" placeholder="Salidas" />
+              <input class="form__input" type="text" name="comentarios" id="edit-comentarios" placeholder="Comentarios" />
+              <input class="form__input" type="text" name="oficina" id="edit-oficina" placeholder="Oficina" />
+        <div class="modal__actions">
+          <button type="submit">Guardar cambios</button>
+          <button type="button" onclick="cerrarModal()">Cancelar</button>
+        </div>
+            </form>
+        </div>
+      </div>
 
       <footer class="footer" id="footer">
         <p class="footer__text">
